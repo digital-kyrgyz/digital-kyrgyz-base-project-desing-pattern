@@ -4,6 +4,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace BaseProject.Migrations
 {
     /// <inheritdoc />
@@ -156,6 +158,29 @@ namespace BaseProject.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
+
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "22e40406-8a9d-2d82-912c-5d6a640ee696", null, "user", "USER" },
+                    { "b421e928-0613-9ebd-a64c-f10b6a706e73", null, "admin", "ADMIN" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[,]
+                {
+                    { "22e40406-8a9d-2d82-912c-5d6a640ee696", 0, "c4736b7b-4dcf-be6b-8b03-e299b4836146", "ali@gmail.com", true, false, null, "Ali@GMAIL.COM", "ALI", "AQAAAAIAAYagAAAAEKyBxEa+U2Hp3yYfOARW+t3OtNNF9JPet7a2Ap46dVjG/4dsygH3nRVk7Md/R3RpGw==", null, false, "I5MOLV6IDX2DRGZMNIQ6KEUQKW3QIG3A", false, "Ali" },
+                    { "b421e928-0613-9ebd-a64c-f10b6a706e73", 0, "c4736b7b-4dcf-be6b-8b03-e299b4836146", "melis.archabaev.kg@gmail.com", true, false, null, "MELIS.ARCHABAEV.KG@GMAIL.COM", "MELIS", "AQAAAAIAAYagAAAAEI0jb3HSipZ3NjqcSg/L6vzNaWNvaBz/M0vqh3NDFekU4AfefoPnxFQkb9zb6Ufkwg==", null, false, "I5MOLV6IDX2DRGZMNIQ6KEUQKW3QIG3A", false, "Melis" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId" },
+                values: new object[] { "b421e928-0613-9ebd-a64c-f10b6a706e73", "22e40406-8a9d-2d82-912c-5d6a640ee696" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

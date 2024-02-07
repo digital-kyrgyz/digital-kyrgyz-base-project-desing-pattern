@@ -84,6 +84,40 @@ namespace BaseProject.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "b421e928-0613-9ebd-a64c-f10b6a706e73",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c4736b7b-4dcf-be6b-8b03-e299b4836146",
+                            Email = "melis.archabaev.kg@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "MELIS.ARCHABAEV.KG@GMAIL.COM",
+                            NormalizedUserName = "MELIS",
+                            PasswordHash = "AQAAAAIAAYagAAAAEI0jb3HSipZ3NjqcSg/L6vzNaWNvaBz/M0vqh3NDFekU4AfefoPnxFQkb9zb6Ufkwg==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "I5MOLV6IDX2DRGZMNIQ6KEUQKW3QIG3A",
+                            TwoFactorEnabled = false,
+                            UserName = "Melis"
+                        },
+                        new
+                        {
+                            Id = "22e40406-8a9d-2d82-912c-5d6a640ee696",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "c4736b7b-4dcf-be6b-8b03-e299b4836146",
+                            Email = "ali@gmail.com",
+                            EmailConfirmed = true,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "Ali@GMAIL.COM",
+                            NormalizedUserName = "ALI",
+                            PasswordHash = "AQAAAAIAAYagAAAAEKyBxEa+U2Hp3yYfOARW+t3OtNNF9JPet7a2Ap46dVjG/4dsygH3nRVk7Md/R3RpGw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "I5MOLV6IDX2DRGZMNIQ6KEUQKW3QIG3A",
+                            TwoFactorEnabled = false,
+                            UserName = "Ali"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -110,6 +144,20 @@ namespace BaseProject.Migrations
                         .HasDatabaseName("RoleNameIndex");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "b421e928-0613-9ebd-a64c-f10b6a706e73",
+                            Name = "admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "22e40406-8a9d-2d82-912c-5d6a640ee696",
+                            Name = "user",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -197,6 +245,13 @@ namespace BaseProject.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "22e40406-8a9d-2d82-912c-5d6a640ee696",
+                            RoleId = "b421e928-0613-9ebd-a64c-f10b6a706e73"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>

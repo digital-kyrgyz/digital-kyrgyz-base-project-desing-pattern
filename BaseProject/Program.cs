@@ -15,6 +15,12 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(options =>
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var identityDbContext = scope.ServiceProvider.GetRequiredService<AppIdentityDbContext>();
+    identityDbContext.Database.Migrate();
+}
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

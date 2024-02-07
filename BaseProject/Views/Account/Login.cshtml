@@ -1,0 +1,19 @@
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<form method="post" asp-controller="Account" asp-action="Login">
+  <div class="mb-3">
+    <label for="email" class="form-label">Email address</label>
+    <input name="email" value="melis.archabaev.kg@gmail.com" type="email" class="form-control" id="email" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Password</label>
+    <input name="password" value="123" type="password" class="form-control" id="email">
+  </div>
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
